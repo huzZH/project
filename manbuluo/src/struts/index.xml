@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="index" namespace="/" extends="struts-default">
+		
+	
+	 
+		<action name="indexAction_*" class="cn.malls.action.IndexAction" method="{1}">
+			<result name="index">/WEB-INF/index.jsp</result>
+			<result name="register">/WEB-INF/register.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="singleDetail">/WEB-INF/singleDetail.jsp</result>
+		</action>
+	
+	</package>	
+</struts>

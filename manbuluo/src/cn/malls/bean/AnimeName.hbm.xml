@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.AnimeName" table="anime_name">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="name"/> 
+		<property name="createDate" column="create_time"/>
+		<property name="deleteDate" column="delete_time"/>
+		<many-to-one name="animeRegion" column="anime_region_id" class="cn.malls.bean.AnimeRegion"/>
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="order" namespace="/" extends="struts-default">
+	
+		
+		<interceptors>
+			<interceptor name="loginInterceptor" class="cn.malls.web.interceptor.LoginInterceptor"></interceptor>
+			
+		</interceptors>
+		<global-results>
+			<result name="login" type="chain">indexAction_login</result>
+		</global-results>
+	 
+		<action name="orderAction_*" class="cn.malls.action.OrderAction" method="{1}">
+			<result name="createOrder">/WEB-INF/createOrder.jsp</result>
+			<result name="input">/WEB-INF/error.jsp</result>
+			<!-- <result name="payment">/WEB-INF/payment.jsp</result> -->
+			<result name="msg">/WEB-INF/msg.jsp</result>
+			<result name="myOrder">/WEB-INF/myOrder.jsp</result>
+
+			<interceptor-ref name="loginInterceptor">
+				<param name="includeMethods">addSlippingAddress,submitOrder,submitSingle,addSlippingAddress,callBack,myOrder</param>
+			</interceptor-ref>			
+			<interceptor-ref name="defaultStack"/>
+		</action>
+	
+	</package>	
+</struts>

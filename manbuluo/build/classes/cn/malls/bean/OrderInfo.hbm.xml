@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.malls.bean.OrderInfo" table="order_info">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="orderNumber" column="order_number"/> 
+		<property name="accountId" column="account_id"/>
+		<property name="consignee" column="consignee"/>
+		<property name="mobil" column="mobil"/>
+		<property name="address" column="address"/> 
+		<property name="payType" column="pay_type"/>
+		<property name="payStatus" column="pay_status"/>
+		<property name="orderStatus" column="order_status"/>
+		<property name="totalAmount" column="total_amount"/>
+		<property name="IP" column="ip"/>
+		<property name="postCode" column="post_code"/>
+		<property name="addTime" column="add_time"/> 
+		<property name="payTime" column="pay_time"/>
+		<property name="returnOid" column="return_oid"/>
+		<property name="exchangeOid" column="exchange_oid"/>
+		<property name="note" column="note"/> 
+		
+		<set name="orderDetails" table="order_detail" lazy="false"  cascade="all" inverse="true" >
+			<key column="order_info_id"/>
+			<one-to-many class="cn.malls.bean.OrderDetail"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.ProductPrice" table="product_price">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="animeProduct" column="product_id" class="cn.malls.bean.AnimeProduct"/>
+		<!-- <one-to-one name="productColor"  class="cn.malls.bean.ProductColor"/>
+		<one-to-one name="productSize"  class="cn.malls.bean.ProductSize"/> -->
+		<property name="market_price" column="market_price"/>  
+		<property name="present_price" column="present_price"/> 
+	</class>
+	
+</hibernate-mapping>

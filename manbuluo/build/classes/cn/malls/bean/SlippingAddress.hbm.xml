@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.SlippingAddress" table="slipping_address">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="consignee" column="consignee"/> 
+		<property name="mobil" column="mobil"/> 
+		<property name="region" column="region"/> 
+		<property name="detailAddress" column="detail_address"/>
+		<property name="postCode" column="postcode"/>
+		
+		<property name="accountId" column="account_id"/>
+	</class>
+	
+</hibernate-mapping>

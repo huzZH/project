@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.AnimeRegion" table="anime_region">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="name"/>
+		<property name="image" column="image"/>
+		
+		<set name="animeNames" table="anime_name" lazy="false" cascade="none" inverse="true">
+			<key column="anime_region_id"></key>
+			<one-to-many class="cn.malls.bean.AnimeName"/>
+		</set>
+		
+		
+		
+		
+		
+		<!-- <list name="animeNames" table="anime_name" lazy="false" cascade="all" inverse="true">
+			<key column="anime_region_id"></key>
+			index中的column是anime_name表的主键 
+			<index column="id" ></index>
+			<one-to-many class="cn.malls.bean.AnimeName"/>
+		</list> -->
+	</class>
+	
+</hibernate-mapping>

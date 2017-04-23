@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="product" namespace="/" extends="struts-default">
+	
+		
+		<action name="productAction_*" class="cn.malls.action.ProductAction" method="{1}">
+			<result name="productList">/WEB-INF/productList.jsp</result>
+			<result name="productList2">/WEB-INF/productList2.jsp</result>
+			<result name="productList3">/WEB-INF/productList3.jsp</result>
+			
+			
+		</action>
+	
+	</package>	
+</struts>

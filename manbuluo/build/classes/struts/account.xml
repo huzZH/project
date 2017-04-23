@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="account" namespace="/" extends="struts-default">
+	<!-- 	
+		<interceptors>
+			<interceptor name="loginInterceptor" class="cn.malls.web.interceptor.LoginInterceptor"></interceptor>
+		</interceptors> -->
+		
+		<!-- <global-results>
+			<result name="login" type="chain">indexAction_login</result>
+		</global-results> -->
+		
+		<action name="accountAction_*" class="cn.malls.action.AccountAction" method="{1}">
+			<result name="index" type="redirectAction">indexAction_index</result>
+			<result name="loginFail" type="chain">indexAction_login</result>
+			<result name="input">/WEB-INF/register.jsp</result>  
+			<result name="login" type="chain">indexAction_login</result>
+			<result name="personal">/WEB-INF/personalCenter.jsp</result>  
+			<result name="updatePassword">/WEB-INF/updatePassword.jsp</result>  
+			<result name="JumpPersonal" type="chain">accountAction_findMember</result>
+			<result name="slippingAddressManage">/WEB-INF/slippingAddressManage.jsp</result>  
+			<result name="completePersonal">/WEB-INF/completePersonal.jsp</result>
+			<result name="createPersonal">/WEB-INF/createPersonal.jsp</result>
+			<!-- <interceptor-ref name="loginInterceptor"/>			
+			<interceptor-ref name="defaultStack"/> -->
+			
+			
+		</action>
+	
+	</package>	
+</struts>

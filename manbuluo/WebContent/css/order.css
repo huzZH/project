@@ -1,0 +1,23 @@
+.InputBorder {
+    border: 1px solid #ccc;
+}
+.addressTable {
+	vertical-align: top;
+	    border-collapse: separate;
+	    border-spacing: 1px;
+	        -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+        background-color: rgb(227, 227, 227);
+            display: table;
+    border-collapse: separate;
+}
+
+.addressTable tr {
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+    list-style: none;
+        display: table-row;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.Cart" table="shopping_cart">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="accountId" column="account_id"/> 
+		<property name="totalQuantity" column="total_quantity"/>
+		<property name="totalPrice" column="total_price"/>
+		<property name="addTime" column="add_time"/>
+		<set name="cartInfos" table="cart_info" lazy="false" cascade="all" inverse="true" order-by="add_time DESC">
+			<key column="shopping_cart_id"/>
+			<one-to-many class="cn.malls.bean.CartInfo"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.Member" table="member">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="name"/> 
+		<property name="sex" column="sex"/>
+		<property name="age" column="age"/>
+		<property name="birthday" column="birthday"/> 
+		<property name="mobil" column="mobil"/>
+		<property name="telphone" column="telphone"/>
+		<property name="email" column="email"/> 
+		<property name="region" column="region"/>
+		<property name="detail_address" column="detail_address"/>
+		<property name="complete" column="complete"/>
+		
+		
+		<one-to-one name="account" class="cn.malls.bean.Account" property-ref="member" cascade="all"/>
+	</class>
+	
+</hibernate-mapping>

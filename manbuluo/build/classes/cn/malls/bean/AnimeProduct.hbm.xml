@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+
+<hibernate-mapping>
+	<class name="cn.malls.bean.AnimeProduct" table="anime_product">
+		<composite-id>
+            <key-property name="id" type="java.lang.Integer">
+                <column name="id" />
+            </key-property>
+        </composite-id>
+		<property name="name" column="name"/> 
+		<property name="discount" column="discount"/>
+		<property name="number" column="number"/>
+		<property name="image" column="image"/>
+		<property name="describe" column="describe"/>
+		<property name="animeName_id" column="anime_name_id"/>
+		<property name="animeCategory_id" column="anime_category_id"/>
+		
+		<property name="isHot" type="java.lang.Byte">
+			<column name="is_hot" sql-type="tinyint(1)"/>
+		</property>
+		<property name="isNew" type="java.lang.Byte">
+			<column name="is_new" sql-type="tinyint"/>
+		</property>
+		
+		<set name="productPrices" table="product_price" cascade="all" inverse="true" lazy="false" >
+			<key column="product_id"/>
+			<one-to-many class="cn.malls.bean.ProductPrice"/>
+		</set>
+
+		
+		<!-- <list name="productPrices" table="product_price" lazy="false" cascade="all" inverse="true">
+			<key column="product_id"/>
+			index是product_price的主键 
+			<index column="id"/>
+			<one-to-many class="cn.malls.bean.ProductPrice"/>
+		</list> -->
+		
+	</class>
+	
+</hibernate-mapping>

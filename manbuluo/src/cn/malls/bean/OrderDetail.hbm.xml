@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引入约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.malls.bean.OrderDetail" table="order_detail">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+<!-- 		<property name="orderInfoId" column="order_info_id"/>  -->
+		<property name="productId" column="product_id"/>
+		<property name="name" column="name"/>
+		<property name="image" column="image"/>
+		<property name="color" column="color"/>
+		<property name="size" column="size"/>
+		<property name="quantity" column="quantity"/>
+		<property name="subtotal" column="subtotal"/>
+		<property name="market_price" column="market_price"/>
+		<property name="present_price" column="present_price"/>
+		
+		<many-to-one name="orderInfo" column="order_info_id" cascade="all" class="cn.malls.bean.OrderInfo"/>
+	</class>
+	
+</hibernate-mapping>

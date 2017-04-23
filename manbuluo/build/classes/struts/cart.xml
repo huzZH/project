@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="cart" namespace="/" extends="struts-default">
+		
+		<interceptors>
+			<interceptor name="loginInterceptor" class="cn.malls.web.interceptor.LoginInterceptor"></interceptor>
+			
+		</interceptors>
+		<global-results>
+			<result name="login" type="chain">indexAction_login</result>
+		</global-results>
+	 
+		<action name="cartAction_*" class="cn.malls.action.CartAction" method="{1}">
+			<result name="addCartSuccess">/WEB-INF/cart.jsp</result>
+			<result name="myCart">/WEB-INF/myCart.jsp</result>
+			<result name="input">/WEB-INF/login.jsp</result>
+			
+			
+			<interceptor-ref name="loginInterceptor">
+				<param name="includeMethods">addCart,myCart,deleteSingleCart,deleteListCart</param>
+			</interceptor-ref>			
+			<interceptor-ref name="defaultStack"/>
+		</action>
+	
+	</package>	
+</struts>
